@@ -1,0 +1,26 @@
+{
+	"metadata": { "license": "CC-BY-NC-SA-4.0", "authors": [ "Sumiko", "Marcus", "Luthor" ] },
+	"format_version": 2,
+	"capabilities": [ "raytraced" ],
+	"header": {
+		"uuid": "5c55a09a-810b-4461-8fd8-7cf0796302f4",
+		"name": "pack.name",
+		"description": "pack.description",
+		"version": [ 1, 0, 0 ],
+		"min_engine_version": [ 1, 20, 0 ]
+	},
+	"modules": [
+		{
+			"uuid": "134fd944-c1ac-4020-ba51-12e565f88def",
+			"type": "resources",
+			"description": "pack.description",
+			"version": [ 1, 0, 0 ]
+		}
+	],
+	"dependencies": [
+		{
+			"uuid": "5f6d74af-d66c-4663-a498-f16de2513082",
+			"version": [ 1, 0, 0 ]
+		}
+	]
+}
