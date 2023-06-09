@@ -13,7 +13,7 @@
 			"uuid": "33b45b3c-855d-41b5-aed9-b67ed6c7654e",
 			"type": "data",
 			"description": "pack.description",
-			"version": [ 1, 0, 0 ]
+			"version": [ 1, 1, 0 ]
 		}
 	],
 	"dependencies": [
