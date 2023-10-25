@@ -1,25 +1,31 @@
 {
-	"metadata": { "license": "CC-BY-NC-SA-4.0", "authors": [ "Sumiko", "Marcus", "Luthor" ] },
+	"metadata": {
+		"license": "CC-BY-NC-SA-4.0",
+		"authors": ["Sumiko", "Marcus", "Luthor"],
+		"generated_with": {
+			"blockbench_entity_wizard": ["1.1.1"]
+		}
+	},
 	"format_version": 2,
 	"header": {
 		"uuid": "5f6d74af-d66c-4663-a498-f16de2513082",
 		"name": "pack.name",
 		"description": "pack.description",
-		"version": [ 1, 0, 0 ],
-		"min_engine_version": [ 1, 20, 0 ]
+		"version": [1, 0, 0],
+		"min_engine_version": [1, 20, 0]
 	},
 	"modules": [
 		{
 			"uuid": "33b45b3c-855d-41b5-aed9-b67ed6c7654e",
 			"type": "data",
 			"description": "pack.description",
-			"version": [ 1, 1, 0 ]
+			"version": [1, 1, 0]
 		}
 	],
 	"dependencies": [
 		{
 			"uuid": "5c55a09a-810b-4461-8fd8-7cf0796302f4",
-			"version": [ 1, 0, 0 ]
+			"version": [1, 0, 0]
 		}
 	]
 }

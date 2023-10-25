@@ -1,0 +1,18 @@
+{
+	"format_version": "1.8.0",
+	"render_controllers": {
+		"controller.render.badger": {
+			"materials": [ { "*": "Array.materials[query.is_invisible]" } ],
+			"geometry": "Geometry.default",
+			"textures": [ "Array.textures[query.is_invisible]" ],
+			"arrays": {
+				"materials": {
+					"Array.materials": [ "Material.default", "Material.invisible" ]
+				},
+				"textures": {
+					"Array.textures": [ "Texture.default", "Texture.invisible" ]
+				}
+			}
+		}
+	}
+}

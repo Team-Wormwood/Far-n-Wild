@@ -1,0 +1,199 @@
+{
+	"format_version": "1.20.30",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "wormwood:scorpion",
+			"is_spawnable": true,
+			"is_summonable": true,
+			"is_experimental": false
+		},
+		"component_groups": {
+			"wormwood:monster.jockey": {
+				"minecraft:addrider": {
+					"entity_type": "minecraft:creeper"
+				},
+				"minecraft:rideable": {
+					"seat_count": 1,
+					"family_types": [ "creeper" ],
+					"seats": {
+						"position": [ 0, 0.54, 0 ]
+					}
+				}
+			},
+			"wormwood:monster.neutral": {
+				"minecraft:environment_sensor": {
+					"triggers": {
+						"filters": {
+							"test": "is_brightness",
+							"operator": "<",
+							"value": 0.49
+						},
+						"event": "wormwood:become_hostile"
+					}
+				},
+				"minecraft:on_target_acquired": {
+					"event": "wormwood:become_angry"
+				}
+			},
+			"wormwood:monster.hostile": {
+				"minecraft:environment_sensor": {
+					"triggers": {
+						"filters": {
+							"test": "is_brightness",
+							"operator": ">",
+							"value": 0.49
+						},
+						"event": "minecraft:become_neutral"
+					}
+				},
+				"minecraft:on_target_acquired": {
+					"event": "wormwood:become_angry"
+				},
+				"minecraft:behavior.nearest_attackable_target": {
+					"priority": 2,
+					"must_see": true,
+					"attack_interval": 5,
+					"entity_types": [
+						{
+							"filters": {
+								"any_of": [
+									{
+										"test": "is_family",
+										"subject": "other",
+										"value": "player"
+									},
+									{
+										"test": "is_family",
+										"subject": "other",
+										"value": "snowgolem"
+									},
+									{
+										"test": "is_family",
+										"subject": "other",
+										"value": "irongolem"
+									}
+								]
+							},
+							"max_dist": 16
+						}
+					]
+				}
+			},
+			"wormwood:monster.angry": {
+				"minecraft:angry": {
+					"duration": 10,
+					"duration_delta": 3,
+					"calm_event": {
+						"event": "wormwood:become_calm",
+						"target": "self"
+					}
+				},
+				"minecraft:behavior.melee_attack": {
+					"priority": 3,
+					"track_target": true,
+					"reach_multiplier": 0.8
+				},
+				"minecraft:behavior.leap_at_target": {
+					"priority": 4,
+					"yd": 0.4,
+					"must_be_on_ground": false
+				}
+			}
+		},
+		"components": {
+			// Mob Attributes //
+			"minecraft:type_family": { "family": [ "scorpion", "monster", "mob", "arthropod" ] },
+			"minecraft:health": { "value": 16, "max": 16 },
+			"minecraft:movement": { "value": 0.3 },
+			"minecraft:attack": { "damage": 3 },
+			"minecraft:collision_box": {
+				"width": 1.4,
+				"height": 0.9
+			},
+
+			"minecraft:experience_reward": { "on_death": "query.last_hit_by_player ? 5 : 0" },
+			"minecraft:loot": { "table": "loot_tables/entities/spider.json" },
+
+			"minecraft:rideable": {
+				"seat_count": 1,
+				"family_types": [ "creeper" ],
+				"seats": {
+					"position": [ 0, 0.54, -0.1 ]
+				}
+			},
+
+			// Mob Behaviours //
+			"minecraft:behavior.float": { "priority": 1 },
+			"minecraft:behavior.hurt_by_target": { "priority": 1 },
+			"minecraft:behavior.mount_pathing": { "priority": 5,
+				"speed_multiplier": 1.25,
+				"target_dist": 0,
+				"track_target": true
+			},
+			"minecraft:behavior.random_stroll": { "priority": 6,
+				"speed_multiplier": 0.8
+			},
+			"minecraft:behavior.look_at_player": { "priority": 7,
+				"look_distance": 6,
+				"probability": 0.02
+			},
+			"minecraft:behavior.random_look_around": { "priority": 7 },
+
+			// Mob Movement & Navigation //
+			"minecraft:navigation.climb": { "can_path_over_water": true },
+			"minecraft:movement.basic": { },
+			"minecraft:jump.static": { },
+			"minecraft:can_climb": { },
+
+			// Mob Core //
+			"minecraft:conditional_bandwidth_optimization": { },
+			"minecraft:despawn": { "despawn_from_distance": { } },
+			"minecraft:breathable": { "total_supply": 15, "suffocate_time": 0 },
+			"minecraft:nameable": { },
+			"minecraft:physics": { },
+			"minecraft:pushable": { "is_pushable": true, "is_pushable_by_piston": true },
+			"minecraft:hurt_on_condition": {
+				"damage_conditions": [
+					{
+						"filters": { "test": "in_lava", "subject": "self", "operator": "==", "value": true },
+						"cause": "lava",
+						"damage_per_tick": 4
+					}
+				]
+			}
+		},
+		"events": {
+			"minecraft:entity_spawned": {
+				"add": {
+					"component_groups": [ "wormwood:monster.neutral" ]
+				}
+			},
+			"wormwood:become_hostile": {
+				"remove": {
+					"component_groups": [ "wormwood:monster.neutral" ]
+				},
+				"add": {
+					"component_groups": [ "wormwood:monster.hostile" ]
+				}
+			},
+			"wormwood:become_neutral": {
+				"remove": {
+					"component_groups": [ "wormwood:monster.hostile" ]
+				},
+				"add": {
+					"component_groups": [ "wormwood:monster.neutral" ]
+				}
+			},
+			"wormwood:become_angry": {
+				"add": {
+					"component_groups": [ "wormwood:monster.angry" ]
+				}
+			},
+			"wormwood:become_calm": {
+				"remove": {
+					"component_groups": [ "wormwood:monster.angry" ]
+				}
+			}
+		}
+	}
+}

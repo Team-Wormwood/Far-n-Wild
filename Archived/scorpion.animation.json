@@ -1,0 +1,76 @@
+{
+	"format_version": "1.16.0",
+	"animations": {
+		"animation.wormwood.scorpion.default_leg_pose": {
+			"loop": true,
+			"bones": {
+				"root": {
+					"position": [0, 5, 0]
+				},
+				"body": {
+					"rotation": [7.5, 0, 0],
+					"position": [0, 0, 0]
+				},
+				"tail": {
+					"rotation": [-7.5, 0, 0]
+				},
+				"leftLeg0": {
+					"rotation": [0, "22.5 - this", "25 - this"]
+				},
+				"leftLeg1": {
+					"rotation": [0, 0, "25 - this"],
+					"position": [1, 0, 0]
+				},
+				"leftLeg2": {
+					"rotation": [0, "-22.5 - this", "25 - this"]
+				},
+				"rightLeg0": {
+					"rotation": [0, "-22.5 - this", "-25 - this"]
+				},
+				"rightLeg1": {
+					"rotation": [0, 0, "-25 - this"],
+					"position": [-1, 0, 0]
+				},
+				"rightLeg2": {
+					"rotation": [0, "22.5 - this", "-25 - this"]
+				},
+				"tailTip": {
+					"rotation": [20, 0, 0],
+					"position": [0, -1, 0]
+				}
+			}
+		},
+		"animation.wormwood.scorpion.look_at_target": {
+			"loop": true,
+			"bones": {
+				"body": {
+					"rotation": ["query.target_x_rotation", 1.5, 0]
+				}
+			}
+		},
+		"animation.wormwood.scorpion.walk": {
+			"loop": true,
+			"anim_time_update": "query.modified_distance_moved",
+			"bones": {
+				"leftLeg0": {
+					"rotation": [0, "math.abs(math.cos(query.anim_time * 76.34 + 90 * 2) * 22.92)", "-math.abs(math.sin(query.anim_time * 38.17 + 90 * 2) * 22.92)"]
+				},
+				"leftLeg1": {
+					"rotation": [0, "math.abs(math.cos(query.anim_time * 76.34 + 90 * 3) * 22.92)", "-math.abs(math.sin(query.anim_time * 38.17 + 90 * 3) * 22.92)"]
+				},
+				"leftLeg2": {
+					"rotation": [0, "-(math.abs(math.cos(query.anim_time * 76.34 + 90 * 2) * 22.92))", "-math.abs(math.sin(query.anim_time * 38.17 + 90 * 2) * 22.92)"]
+				},
+				"rightLeg0": {
+					"rotation": [0, "-math.abs(math.cos(query.anim_time * 76.34 + 90 * 2) * 22.92)", "math.abs(math.sin(query.anim_time * 38.17 + 90 * 2) * 22.92)"]
+				},
+				"rightLeg1": {
+					"rotation": [0, "-math.abs(math.cos(query.anim_time * 76.34 + 90 * 3) * 22.92)", "math.abs(math.sin(query.anim_time * 38.17 + 90 * 3) * 22.92)"]
+				},
+				"rightLeg2": {
+					"rotation": [0, "-(-math.abs(math.cos(query.anim_time * 76.34 + 90 * 2) * 22.92))", "math.abs(math.sin(query.anim_time * 38.17 + 90 * 2) * 22.92)"]
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,17 @@
+{
+    "format_version": "1.20.30",
+    "animation_controllers": {
+        "controller.animation.wormwood.scorpion_movement_controller": {
+            "initial_state": "default",
+            "states": {
+                "default": {
+                    "animations": [
+                        "default_leg_pose",
+                        { "walk": "query.modified_move_speed" },
+                        "look_at_target"
+                    ]
+                }
+            }
+        }
+    }
+}

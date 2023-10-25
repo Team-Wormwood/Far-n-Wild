@@ -1,0 +1,31 @@
+{
+	"format_version": "1.20.30",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "wormwood:badger",
+			"geometry": { "default": "geometry.badger" },
+			"textures": {
+				"default": "textures/entity/badger"
+			},
+			"materials": {
+				"default": "entity_alphatest",
+				"invisible": "entity_emissive_alpha"
+			},
+			"scripts": { "animate": [ "controller.movement" ] },
+			"animations": {
+				// Animation Controllers //
+				"controller.movement": "controller.animation.wormwood.badger.movement_controller",
+
+				// Animations //
+				"animation.default_leg_pose": "animation.wormwood.badger.default_pose",
+				"animation.look_at_target": "animation.common.look_at_target",
+				"animation.walk": "animation.wormwood.badger.walk"
+			},
+			"render_controllers": [ "controller.render.badger" ],
+			"spawn_egg": {
+				"base_color": "#382d2a",
+				"overlay_color": "#af8d5c"
+			}
+		}
+	}
+}

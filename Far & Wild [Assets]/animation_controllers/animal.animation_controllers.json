@@ -1,0 +1,16 @@
+{
+    "format_version": "1.20.30",
+    "animation_controllers": {
+        "controller.animation.wormwood.generic_animal": {
+            "states": {
+                "default": {
+                    "animations": [
+                        { "animation.baby_transform": "query.is_baby" },
+                        "animation.look_at_target",
+                        "animation.idle"
+                    ]
+                }
+            }
+        }
+    }
+}

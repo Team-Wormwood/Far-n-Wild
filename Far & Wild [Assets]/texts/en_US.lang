@@ -1,0 +1,25 @@
+## World Beyond - 2022
+## English - United States
+
+## Pack Manifest ##
+pack.name=Far & Wild - Resources & Assets
+pack.description=
+
+## Items ##
+### --------- ###
+### --------- ###
+
+## Entities ##
+
+## Tile Entities ##
+
+## Tiles ##
+
+## Interactions ##
+
+## Loading Messages ##
+
+## Miscellaneous ##
+
+entity.wormwood:scorpion.name=Scorpion
+item.spawn_egg.entity.wormwood:scorpion.name=Spawn Scorpion
